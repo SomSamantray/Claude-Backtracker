@@ -13,20 +13,20 @@ Claude Code keeps a full history of every session you've ever had, but gives you
 ```
 📋 Sessions — most recent first  (showing #1 to #10)
 
-#1   Apr 01, 2026 · 10:45 AM  [Documents\Claude-Backtracker]
-     Building a cross-platform installer and slash command for session tracking
+#1   Apr 01, 2026 · 10:45 AM  [Documents\my-portfolio]
+     Added dark mode toggle and responsive navbar to the portfolio site
 
-#2   Mar 31, 2026 · 07:02 AM  [Documents\Easter-Egg]
-     Pushed an Easter Egg maze game built in React JSX to a new GitHub repo
+#2   Mar 31, 2026 · 07:02 AM  [Documents\api-server]
+     Fixed authentication bug in the JWT refresh token endpoint
 
-#3   Mar 29, 2026 · 03:30 PM  [Documents\VibePro-CLI]
-     Built a CLI wrapper for Claude Code with a login flow and project selector
+#3   Mar 29, 2026 · 03:30 PM  [Documents\data-pipeline]
+     Built a CSV ingestion pipeline with validation and error reporting
 
-#4   Mar 28, 2026 · 11:14 AM  [Documents\Mio-Dashboard]
-     Designed the Intelligence Dashboard for Mio AI with chart components
+#4   Mar 28, 2026 · 11:14 AM  [Documents\mobile-app]
+     Designed the onboarding flow screens and navigation structure
 
-#5   Mar 27, 2026 · 09:00 AM  [Users\Som]
-     Configured Claude Code hooks and keybindings for the development workflow
+#5   Mar 27, 2026 · 09:00 AM  [Documents\scripts]
+     Wrote a script to automate weekly report generation from a database
 
 ...
 
@@ -39,14 +39,14 @@ Type 'more' or /backtrack more for earlier sessions.
 
 ```
 ──────────────────────────────────────────────
-📂 Session #3  ·  Mar 29, 2026  ·  [Documents\VibePro-CLI]
+📂 Session #3  ·  Mar 29, 2026  ·  [Documents\data-pipeline]
 
-Summary: Built a CLI wrapper for Claude Code with a login flow and project selector
+Summary: Built a CSV ingestion pipeline with validation and error reporting
 
 Your first messages in this session:
-  • "Now, I am looking to build a CLI wrapper for Claude Code..."
-  • "What if there is no Claude auth token yet?"
-  • "Yes. Let's go with the auto-detect approach."
+  • "I need to build a pipeline that reads CSV files from a folder..."
+  • "What should we do when a row has a missing required field?"
+  • "Yes, skip and log it to a separate errors file."
 ──────────────────────────────────────────────
 
 ✅ Context from session #3 loaded. You can continue this work — just tell me what to do next.
