@@ -1,8 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildPaths, validateNodeVersion, validateClaudeInstalled } from '../lib/paths.js';
+import { buildPaths, validateNodeVersion, validateClaudeInstalled, detectInstallMode } from '../lib/paths.js';
 import path from 'path';
 import os from 'os';
+import fs from 'fs';
 
 test('buildPaths returns correct structure', () => {
   const paths = buildPaths();
@@ -34,4 +35,29 @@ test('validateNodeVersion throws for Node 14', () => {
 
 test('validateNodeVersion throws for Node 15', () => {
   assert.throws(() => validateNodeVersion('15.0.0'), /Node\.js 16\+ required/);
+});
+
+test('detectInstallMode returns first-install when backtrackDir does not exist', () => {
+  assert.equal(detectInstallMode('/nonexistent/backtrack/dir', '/nonexistent/backtrack/dir/info.json'), 'first-install');
+});
+
+test('detectInstallMode returns interrupted when dir exists but info.json missing', (t) => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bt-test-'));
+  try {
+    const infoPath = path.join(tmpDir, 'info.json');
+    assert.equal(detectInstallMode(tmpDir, infoPath), 'interrupted');
+  } finally {
+    fs.rmdirSync(tmpDir);
+  }
+});
+
+test('detectInstallMode returns update when both dir and info.json exist', (t) => {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bt-test-'));
+  const infoPath = path.join(tmpDir, 'info.json');
+  try {
+    fs.writeFileSync(infoPath, '{}');
+    assert.equal(detectInstallMode(tmpDir, infoPath), 'update');
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true });
+  }
 });
